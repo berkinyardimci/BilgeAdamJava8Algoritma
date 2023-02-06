@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Question44 {
 
 	public static void main(String[] args) {
+		//negatif sayıları farklı bir arraye atalım
 		// TODO Auto-generated method stub
 		int[] sayilar = { -2,-4,10,5 ,4,5,-5,-3,-3,-4,-3};
 		int count =0;
