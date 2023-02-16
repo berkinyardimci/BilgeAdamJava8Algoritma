@@ -21,12 +21,14 @@ public class Question69 {
 
 		// bIleBaslayanlar(iller);
 
-		String[] sesliHarfleriSilinmis = sesliHarfleriSil();
-
-		for (int i = 0; i < sesliHarfleriSilinmis.length; i++) {
-
-			System.out.println(sesliHarfleriSilinmis[i]);
-		}
+//		String[] sesliHarfleriSilinmis = sesliHarfleriSil();
+//
+//		for (int i = 0; i < sesliHarfleriSilinmis.length; i++) {
+//
+//			System.out.println(sesliHarfleriSilinmis[i]);
+//		}
+		
+		plakaBul(iller, "Ankara","Adana","Bursa","İzmir");
 
 	}
 
@@ -77,5 +79,23 @@ public class Question69 {
 		}
 		return yeniDizi;
 
+	}
+	//plakaBul(iller,"Ankara","Karaman");
+	//parametre olarak array ve sınırsız sayıda String olarak şehir alsın
+	//girilen şehirlerin plakalarını yazdırsın
+	
+	public static void plakaBul(String[] array, String... il ) {
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < il.length; j++) {
+				if(array[i].equals(il[j])) {
+					
+					if(i<=9) {
+						System.out.println("0" +(i+1) + "-" + array[i]);
+					}else {
+						System.out.println((i+1)+ "-" + array[i]);
+					}
+				}
+			}
+		}
 	}
 }
