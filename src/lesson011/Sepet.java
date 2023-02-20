@@ -53,6 +53,7 @@ public class Sepet {
 				this.totalPrice += product.getPrice();
 				product.setStock(product.getStock() - 1);
 				product.gosterimdenKaldir();
+				System.out.println("Sepete eklendi");
 			}
 		}else {
 			System.out.println("ürün stoku bitmiştir");

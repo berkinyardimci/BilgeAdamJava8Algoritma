@@ -10,4 +10,19 @@ public class RandomGenererateId {
 		String randomId = Integer.toString(intRandomNumber);
 		return randomId;
 	}
+	
+	//Product ismine göre bitane cod oluşturcaz
+	public static String generateProductCode(String name) {
+		String code = generateId();
+		String newCode = name.substring(0,3) + code;
+		return newCode;
+	}
+	
+	public static String generateProductCodeWithStringBuidler(String name) {
+		String newCode = name.substring(0,3);
+		StringBuilder stringBuilder = new StringBuilder();
+		String randomNumber = generateId();
+		stringBuilder.append(newCode + randomNumber);
+		return stringBuilder.toString();
+	}
 }
