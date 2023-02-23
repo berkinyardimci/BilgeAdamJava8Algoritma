@@ -8,6 +8,8 @@ public class Soru {
 	private String icerik;
 	private String dogruCevap;
 	private String[] cevapIcerikleri; // A şıkkında yazan deger, B şıkkında yazna deger
+	
+	
 
 	public Soru() {
 	}

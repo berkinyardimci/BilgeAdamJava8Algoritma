@@ -6,8 +6,8 @@ public class RandomGenererateId {
 	
 	public static String generateId() {
 		Random random = new Random();
-		int intRandomNumber = random.nextInt(1000,10000);
-		String randomId = Integer.toString(intRandomNumber);
+		float intRandomNumber = random.nextInt(1000,10000);
+		String randomId = Float.toString(intRandomNumber);
 		return randomId;
 	}
 	
