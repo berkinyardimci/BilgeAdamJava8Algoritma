@@ -36,5 +36,27 @@ public class UserManger {
 			System.out.println("Kredi Borcunu Bulunmamakta");
 		}
 	}
+	
+	//
+	
+	public void hesaptanKrediBorcuOde(Account account, int taksit) {
+		if (account.isKrediAlindimi()) {
+			if (account.getKrediBorcu() < taksit) {
+				System.out.println("Kart Borcunuz yatırılan miktardan az");
+			} else {
+				if (account.getMoney() >= taksit) {
+					account.setKrediBorcu(account.getKrediBorcu() - taksit);
+					account.setMoney(account.getMoney() - taksit);
+					System.out.println(taksit + " Hesaptan ödeme yaptınız Güncel Borcunuz: " + account.getKrediBorcu());
+					System.out.println("Hesabınızdaki bakiye : " + account.getMoney());
+				} else {
+					System.out.println("Bakiyeniz yetersiz");
+				}
+			}
+
+		} else {
+			System.out.println("Kredi Borcunu Bulunmamakta");
+		}
+	}
 
 }

@@ -68,6 +68,8 @@ public class Main {
 		
 		//çıktı olarak--> güncel kredi kartı borcunuz ....TL. 
 		
+		//hesaptanKrediBorcunuOde();
+		
 		
 			
 		AccountManager accountManager = new AccountManager();
@@ -120,9 +122,12 @@ public class Main {
 		accountManager.accountDetails(account3);
 		userManger.krediBorcunuOde(account3, 5000);
 		userManger.krediBorcunuOde(account3, 15000);
-		userManger.krediBorcunuOde(account3, 5000);
-		userManger.krediBorcunuOde(account3, 100);
 		System.out.println(account3.getKrediBorcu());
+		System.out.println("Bakiyeniz: " + account3.getMoney());
+		userManger.hesaptanKrediBorcuOde(account3, 1000);
+		userManger.hesaptanKrediBorcuOde(account3, 6000);
+		System.out.println(account3.getKrediBorcu());
+		System.out.println("Bakiyeniz: " + account3.getMoney());
 		
 		System.out.println("*****************");
 		
