@@ -56,7 +56,20 @@ public class Main {
 		
 		//Account Nesnesi oluşturdugumuz
 		//Otomatik id atasın
-
+		
+		//-----
+		
+		//krediBorcunuÖde()
+		//dışardan nakit ödeme
+		//eğer user'ın çekmiş oldugu kredi yoksa ve ya kredi başvurusu reddilmiş ise
+		//işleminizi gerçekleştiremiyoruz
+		//çekilmiş kredi varsa parametre olarak girdiğimiz miktar kadar ödeme yapmış olalım
+		//ve kredi kartı borcundan düşülsün
+		
+		//çıktı olarak--> güncel kredi kartı borcunuz ....TL. 
+		
+		
+			
 		AccountManager accountManager = new AccountManager();
 		UserManger userManger = new UserManger();
 		AdminManager adminManager = new AdminManager();
@@ -102,10 +115,17 @@ public class Main {
 		
 		System.out.println(account3.getMoney());
 		userManger.krediBasvurusundaBulun(account3, 25000);
-		adminManager.krediBasvurusunuOnayla(user3);
-		adminManager.krediBasvurusunuOnayla(user3);
+		adminManager.krediBasvurusunuOnayla(account3);
+		//adminManager.krediBasvurusunuReddet(account3);
 		accountManager.accountDetails(account3);
+		userManger.krediBorcunuOde(account3, 5000);
+		userManger.krediBorcunuOde(account3, 15000);
+		userManger.krediBorcunuOde(account3, 5000);
+		userManger.krediBorcunuOde(account3, 100);
+		System.out.println(account3.getKrediBorcu());
+		
 		System.out.println("*****************");
+		
 
 		// accountManager.depositMoney(account, 200);
 		// accountManager.depositMoney(account, 300);
