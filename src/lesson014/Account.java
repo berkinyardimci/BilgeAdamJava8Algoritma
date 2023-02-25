@@ -15,6 +15,10 @@ public class Account {
 	private int krediBorcu;
 	private boolean krediAlindimi;
 
+	private boolean krediBorcuOdendiMi;
+	private int nakitAvans;
+	private int krediPuani;
+
 	public Account() {
 		this.accountNo = randomAccountNo();
 	}
@@ -24,6 +28,30 @@ public class Account {
 		this.money = money;
 	}
 
+	public int getKrediPuani() {
+		return krediPuani;
+	}
+
+	public void setKrediPuani(int krediPuani) {
+		this.krediPuani = krediPuani;
+	}
+
+	public boolean isKrediBorcuOdendiMi() {
+		return krediBorcuOdendiMi;
+	}
+
+	public void setKrediBorcuOdendiMi(boolean krediBorcuOdendiMi) {
+		this.krediBorcuOdendiMi = krediBorcuOdendiMi;
+	}
+
+	public int getNakitAvans() {
+		return nakitAvans;
+	}
+
+	public void setNakitAvans(int nakitAvans) {
+		this.nakitAvans = nakitAvans;
+	}
+
 	public int getKrediBorcu() {
 		return krediBorcu;
 	}
@@ -31,7 +59,6 @@ public class Account {
 	public void setKrediBorcu(int krediBorcu) {
 		this.krediBorcu = krediBorcu;
 	}
-
 
 	public boolean isKrediAlindimi() {
 		return krediAlindimi;

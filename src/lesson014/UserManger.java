@@ -31,13 +31,13 @@ public class UserManger {
 			} else {
 				account.setKrediBorcu(account.getKrediBorcu() - taksit);
 				System.out.println(taksit + " Kadar ödeme yaptınız Güncel Borcunuz--> " + account.getKrediBorcu());
+				account.setKrediBorcuOdendiMi(true);
+				account.setKrediPuani(account.getKrediPuani() + 10);
 			}
 		} else {
 			System.out.println("Kredi Borcunu Bulunmamakta");
 		}
 	}
-	
-	//
 	
 	public void hesaptanKrediBorcuOde(Account account, int taksit) {
 		if (account.isKrediAlindimi()) {
@@ -49,14 +49,26 @@ public class UserManger {
 					account.setMoney(account.getMoney() - taksit);
 					System.out.println(taksit + " Hesaptan ödeme yaptınız Güncel Borcunuz: " + account.getKrediBorcu());
 					System.out.println("Hesabınızdaki bakiye : " + account.getMoney());
+					account.setKrediBorcuOdendiMi(true);
+					account.setKrediPuani(account.getKrediPuani() + 10);
 				} else {
 					System.out.println("Bakiyeniz yetersiz");
 				}
 			}
-
 		} else {
 			System.out.println("Kredi Borcunu Bulunmamakta");
 		}
 	}
-
+	
+	public void nakitAvansCek(Account account, int avans) {
+		if(account.getKrediPuani() >=50) {
+			System.out.println(account.getMoney() / 2 - account.getIstenenKredi() + " nakit avans çekebilirsiniz");
+			account.setMoney(account.getMoney()-avans);
+			System.out.println(avans + " Tl avans çektiniz ");
+			System.out.println("Güncel Bakiye: " + account.getMoney());
+		}else{
+			System.out.println(" Kredi notu yetersiz kredi notunuz: " + account.getKrediPuani());
+		}
+	}
+	
 }

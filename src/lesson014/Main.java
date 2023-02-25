@@ -125,8 +125,13 @@ public class Main {
 		System.out.println(account3.getKrediBorcu());
 		System.out.println("Bakiyeniz: " + account3.getMoney());
 		userManger.hesaptanKrediBorcuOde(account3, 1000);
+		userManger.hesaptanKrediBorcuOde(account3, 1000);
+		userManger.hesaptanKrediBorcuOde(account3, 1000);
 		userManger.hesaptanKrediBorcuOde(account3, 6000);
 		System.out.println(account3.getKrediBorcu());
+		System.out.println("Bakiyeniz: " + account3.getMoney());
+		
+		userManger.nakitAvansCek(account3, 2000);
 		System.out.println("Bakiyeniz: " + account3.getMoney());
 		
 		System.out.println("*****************");
