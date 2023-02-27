@@ -9,6 +9,7 @@ public class Kedi extends Hayvan {
 	public Kedi(String name, boolean kayitliMi, String dogumTarihi, String cins) {
 		super(name, kayitliMi, dogumTarihi);
 		this.cins = cins;
+		this.tur = "Kedi";
 	}
 
 	public String getTur() {
@@ -34,5 +35,23 @@ public class Kedi extends Hayvan {
 	public void setKarne(String karne) {
 		this.karne = karne;
 	}
+
+	@Override
+	public void karneOlustur() {
+		setKarne("Cins = " + this.getCins() + " Tur = " + this.getTur());
+		System.out.println(getName()+" Karneniz olustu-->  " + this.getKarne());
+	}
+
+	@Override
+	public void bilgileriGoster() {
+		System.out.println(toString());
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "Kedi [tur=" + tur + ", cins=" + cins + ", karne=" + karne + "]";
+	}
+	
+	
 
 }

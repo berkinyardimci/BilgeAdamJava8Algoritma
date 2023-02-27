@@ -1,7 +1,7 @@
 package lesson015.veteriner;
 
 public class Kopek extends Hayvan {
-
+	
 	private int asiSayisi;
 	private String cins;
 	private String tur;
@@ -10,6 +10,7 @@ public class Kopek extends Hayvan {
 	public Kopek(String name, boolean kayitliMi, String dogumTarihi, String cins) {
 		super(name, kayitliMi, dogumTarihi);
 		this.cins = cins;
+		this.tur = "Kopek";
 	}
 
 	public int getAsiSayisi() {
@@ -43,5 +44,25 @@ public class Kopek extends Hayvan {
 	public void setKarne(String karne) {
 		this.karne = karne;
 	}
+
+	@Override
+	public void karneOlustur() {
+		setKarne("Cins = " + this.getCins() + " Tur = " + this.getTur());
+		System.out.println(getName() + " Karneniz olustu-->  " + this.getKarne());
+	}
+
+	@Override
+	public void bilgileriGoster() {
+		System.out.println(toString());
+		
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() +" Kopek [asiSayisi=" + asiSayisi + ", cins=" + cins + ", tur=" + tur + ", karne=" + karne + "]";
+	}
+	
+	
+	
 
 }

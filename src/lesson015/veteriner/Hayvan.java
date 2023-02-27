@@ -1,6 +1,6 @@
 package lesson015.veteriner;
 
-public abstract class Hayvan {
+public abstract class Hayvan extends Object {
 
 	private String name;
 	private boolean kayitliMi;
@@ -12,6 +12,10 @@ public abstract class Hayvan {
 		this.kayitliMi = kayitliMi;
 		this.dogumTarihi = dogumTarihi;
 	}
+
+	public abstract void karneOlustur();
+
+	public abstract void bilgileriGoster();
 
 	public String getDogumTarihi() {
 		return dogumTarihi;
@@ -41,5 +45,6 @@ public abstract class Hayvan {
 	public String toString() {
 		return "Hayvan [name=" + name + ", kayitliMi=" + kayitliMi + ", dogumTarihi=" + dogumTarihi + "]";
 	}
+	
 
 }
