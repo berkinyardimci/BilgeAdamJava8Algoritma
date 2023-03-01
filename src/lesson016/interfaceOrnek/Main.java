@@ -9,4 +9,8 @@ public class Main {
 	//IHareket -->
 	
 	//documan veriyolar--> araba sınıf yazcan IHareket interfacesini kullan
+	
+	public static void main(String[] args) {
+		
+	}
 }

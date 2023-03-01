@@ -7,4 +7,6 @@ public interface IKutuphaneManager {
 	void yazarIsmıneGoreArama();
 	void kitapSil();
 	void indirimUygula();
+	void kitabiGuncelle();
+	void indirimdekiKitaplariGoster();
 }

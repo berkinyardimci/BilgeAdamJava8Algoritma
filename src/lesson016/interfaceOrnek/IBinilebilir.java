@@ -1,5 +1,5 @@
 package lesson016.interfaceOrnek;
 
-public interface IBinilebilir {
+public interface IBinilebilir{
 	void bin();
 }

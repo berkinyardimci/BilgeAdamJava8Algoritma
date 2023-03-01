@@ -7,11 +7,13 @@ public class Kutuphane implements IKutuphaneManager {
 
 	private String name;
 	private List<Kitap> kitapListesi;
+	private List<Kitap> indirimdekiKitaplar;
 
 	public Kutuphane(String name) {
 		super();
 		this.name = name;
 		this.kitapListesi = new ArrayList<>();
+		this.indirimdekiKitaplar = new ArrayList<>();
 		System.out.println("Kütüphane oluştu");
 	}
 
@@ -26,6 +28,12 @@ public class Kutuphane implements IKutuphaneManager {
 	public List<Kitap> getKitapListesi() {
 		return kitapListesi;
 	}
+	
+
+	public List<Kitap> getIndirimdekiKitaplar() {
+		return indirimdekiKitaplar;
+	}
+
 
 	@Override
 	public void kitapEkle() {
@@ -82,8 +90,9 @@ public class Kutuphane implements IKutuphaneManager {
 		if (kitap != null) {
 			kitap.setFiyat(kitap.getFiyat() - indirim);
 			System.out.println("Güncel Fiyatı--> " + kitap.getFiyat());
+			getIndirimdekiKitaplar().add(kitap);
+			//kitap.setIndirimdeMi(true);
 		}
-
 	}
 
 	// 0 1 2
@@ -96,6 +105,34 @@ public class Kutuphane implements IKutuphaneManager {
 		}
 		System.out.println("Kitap bulunamamıştır");
 		return null;
+	}
+
+	@Override
+	public void kitabiGuncelle() {
+		String isim = Util.stringDegerAl("Değiştirmek istediğiniz kitabın adını girin: ");
+		Kitap kitap = kontrol(isim);
+		if (kitap != null) {
+			String guncelIsım = Util.stringDegerAl("Güncellemek istediğiniz ismi girin: ");
+			kitap.setIsim(guncelIsım);
+			System.out.println("Güncel İsmi--> " + kitap.getIsim());
+		}
+	}
+
+	@Override
+	public void indirimdekiKitaplariGoster() {
+		System.out.println("indirimdeki kitaplar ");
+		for (Kitap kitap : indirimdekiKitaplar) {
+			System.out.println(kitap.getIsim());
+		}
+	}
+	
+	public void indirimdekiKitaplariGosterAlternatif() {
+		System.out.println("indirimdeki kitaplar ");
+		for (Kitap kitap : kitapListesi) {
+			if (kitap.isIndirimdeMi()) {
+				System.out.println(kitap.getIsim());
+			}
+		}
 	}
 
 }
