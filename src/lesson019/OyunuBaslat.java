@@ -5,13 +5,14 @@ import java.util.Scanner;
 public class OyunuBaslat {
 	
 	public  static void menu() {
+		
+		
 		PlakaTahmin plakaTahmin = new PlakaTahmin();
 		
 		String message = "Şehir Tahmin Oyununa Hoşgeldiniz\n" + "Oyunumuzda toplam 3 tahmin hakkınız bulunmaktadır.\n"
 				+ "1- Oyuna başla \n" + "2- Tahminlerim \n" + "0- Çıkış \n";
 		
 		int input;
-		
 		do {
 			System.out.println("=================================");
 			System.out.println(plakaTahmin.oyunSayisi + ". oyun");
@@ -21,7 +22,7 @@ public class OyunuBaslat {
 			
 			switch (input) {
 			case 1:
-				plakaTahmin.tahmin();
+				plakaTahmin.tahmin2();
 				break;
 			case 2:
 				plakaTahmin.tahminListem();

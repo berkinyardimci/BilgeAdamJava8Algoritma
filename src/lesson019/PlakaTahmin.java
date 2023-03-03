@@ -1,7 +1,11 @@
 package lesson019;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Random;
+import java.util.Scanner;
 
 public class PlakaTahmin {
 
@@ -58,13 +62,75 @@ public class PlakaTahmin {
 	}
 
 	public void tahmin() {
-		System.out.println("tahmin");
-		
+		Scanner scanner = new Scanner(System.in);
+		int randomPlaka = randomPlaka();
+		List<String> tahminList = new ArrayList<>();
+
+		for (int i = hak; i > 0; i--) {
+			System.out.println(hak - i + 1 + ". Hakkınız");
+			System.out.println(randomPlaka + " Hangi ilimizin Plakasıdır");
+			String sehirTahmini = scanner.nextLine();
+			tahminList.add(sehirTahmini);
+
+			if (sehirTahmini.equalsIgnoreCase(sehirler.get(randomPlaka))) {
+				String message = "Tebrikler" + sehirTahmini + " adlı şehri" + (hak - i + 1)
+						+ ". Hakkınızda doğru tahmin ettiniz";
+				System.out.println(message);
+				break;
+			} else {
+				if (i - 1 == 0) {
+					System.out.println("Hakkınız Kalmadı");
+				} else {
+					System.out.println("Yanlış Tahmin " + (i - 1) + "Hakkınız kaldı");
+				}
+			}
+		}
+		tahminler.put(oyunSayisi, tahminList);
+		oyunSayisi++;
 	}
 
+	public void tahmin2() {
+		List<String> tahmin = new ArrayList<>();
+		int plakaRandom = randomPlaka();
+		String belrilenenePlaka = sehirler.get(plakaRandom);
+		do {
+			System.out.println("Plaka numarasi --> (" + plakaRandom + ") Hangi sehrimizin plakasidir?");
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Tahmin Giriniz: ");
+			String sehir = sc.nextLine();
+			tahmin.add(sehir);
+			if (sehir.equalsIgnoreCase(belrilenenePlaka)) {
+				System.out.println("Tebrikler " + (4 - hak) + ". denemede buldunuz");
+				break;
+			} else {
+				hak--;
+				System.out.println(" !!Yanlis tahmin ");
+				if (hak == 0) {
+					System.out.println("**Hakkiniz dolmustur**");
+				} else {
+					System.out.println("-->" + hak + " adet tahmin hakkiniz kaldi.");
+				}
+			}
+		} while (hak > 0);
+		tahminler.put(oyunSayisi, tahmin);
+		oyunSayisi++;
+		hak = 3;
+	}
+	
+	
+
 	public void tahminListem() {
-		System.out.println("tahmin Listesi");
-		
+
+		for (Entry<Integer, List<String>> entry : tahminler.entrySet()) {
+			System.out.println(entry.getKey() + ". oyun tahminleri --> " + entry.getValue());
+		}
+
+	}
+
+	private int randomPlaka() {
+		Random random = new Random();
+		int plaka = random.nextInt(1, 41);
+		return plaka;
 	}
 
 }
