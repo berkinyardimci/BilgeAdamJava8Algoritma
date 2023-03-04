@@ -117,8 +117,6 @@ public class PlakaTahmin {
 		hak = 3;
 	}
 	
-	
-
 	public void tahminListem() {
 
 		for (Entry<Integer, List<String>> entry : tahminler.entrySet()) {
