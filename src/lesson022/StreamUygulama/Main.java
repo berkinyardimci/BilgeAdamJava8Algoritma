@@ -7,5 +7,11 @@ public class Main {
 		Market market = new Market();
 		market.urunleriListele();
 		market.fiyatListesi();
+		market.fiyati50denBuyukOlanlar();
+		market.ortalama();
+		market.SepeteUrunEkle();
+		market.SepeteUrunEkle();
+		market.SepeteUrunEkle();
+		market.sepetiGoster();
 	}
 }

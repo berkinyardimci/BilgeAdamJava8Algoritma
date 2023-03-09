@@ -2,7 +2,7 @@ package lesson022.StreamUygulama;
 
 public enum EUrun {
 
-	Cips(20), Kola(15), Şeker(65), Yağ(40), Ekmek(5), Yumurta(10);
+	Cips(20), Kola(15), Şeker(65), Yağ(40), Ekmek(75), Yumurta(100);
 
 	double fiyat;
 
