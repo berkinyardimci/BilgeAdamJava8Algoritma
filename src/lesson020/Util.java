@@ -54,6 +54,6 @@ public class Util {
 	
 	public static void main(String[] args) {
 		LocalDate date = stringTarih();
-		System.out.println(date.getYear());
+		System.out.println(date.getDayOfWeek());
 	}
 }

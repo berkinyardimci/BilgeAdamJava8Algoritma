@@ -1,5 +1,6 @@
 package lesson021;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -18,14 +19,34 @@ import java.util.Scanner;
 //excepiton fırlatcaz
 //double dönsün
 
-public class Uygulama {
+//5- limanımız cuma ürün kabul etmiyoruz
 
+//6- yukOlustur methodu yazalım
+//
+
+public class Uygulama {
+	
+	// hibernate
+	// Dependency Injection
+	// Spring boot
+	
+	//veribanı, postgreSQL, sql
+	//JDBC
+	//Hibernate
+	//html css, react
+	//spring boot
+	//react
+	
+	// 30 tane heapte static için yer ayrıldı
+
+	// Uygulama nesnesi oluşur
 	Liman liman;
-	static Scanner scanner = new Scanner(System.in);
 
 	public Uygulama() {
 		this.liman = new Liman();
 	}
+
+	static Scanner scanner = new Scanner(System.in);
 
 	public void yukYeriSec() {
 		System.out.println("Lütfen bi yük yeri seçin");
@@ -44,7 +65,7 @@ public class Uygulama {
 	public int yukYeriSec2() {
 		liman.getYukler()[0] = new Yuk("1 palet kıyafet", 150, LocalDate.now());
 		int index = Util.intDegerAlma("Lütfen Yük yeri seçin");
-		
+
 		if (index < 0 || index >= liman.getYukler().length) {
 			throw new LimanAppExcepiton(EErrorType.OUT_OF_BOUNDS);
 
@@ -54,12 +75,61 @@ public class Uygulama {
 		return index;
 	}
 
-	public static void main(String[] args) {
-		Uygulama uygulama = new Uygulama();
+	public double agirlikAl() {
+		double weight = Util.doubleDegerAlma("Yükünüzün agırlıgını giriniz: ");
+		if (weight < 100) {
+			throw new LimanAppExcepiton(EErrorType.TOO_LOW_WEIGHT);
+		}
+		return weight;
+	}
+
+	public LocalDate kabulTarihiKontrol() {
+		// Geçmişteki bir tarih aldıgımızda hata fırlatmamız lazım
+		LocalDate date = Util.stringTarih();
+
+		if (date.isBefore(LocalDate.now())) {
+			throw new LimanAppExcepiton(EErrorType.EXPIRED_DATE);
+
+		} else if (date.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+			throw new LimanAppExcepiton(EErrorType.OUT_OF_SHIFT_DAY);
+		}
+		return date;
+	}
+
+	public void yukOlustur() {
+		Yuk yuk = null;
+		int index = 0;
 		try {
-			uygulama.yukYeriSec2();
+			index = yukYeriSec2();
+			String name = Util.stringDegerAl("Yük ismi: ");
+			double agirlik = agirlikAl();
+			LocalDate date = kabulTarihiKontrol();
+			yuk = new Yuk(name, agirlik, date);
+
+			liman.getYukler()[index] = yuk;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+		} finally {
+			if (yuk == null) {
+				System.out.println("Yükünüz Kabul edilmedi");
+			} else {
+				System.out.println("Yukunuz kabul oldu " + index + " nolu yere yerleşti");
+			}
 		}
+	}
+
+	public static void main(String[] args) {
+		Uygulama uygulama = new Uygulama();
+//		try {
+//			uygulama.yukYeriSec2();
+//			uygulama.agirlikAl();
+//			uygulama.kabulTarihiKontrol();
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+		//overEngineering
+		//Keep it simple
+		//Simple is the best
+		uygulama.yukOlustur();
 	}
 }
