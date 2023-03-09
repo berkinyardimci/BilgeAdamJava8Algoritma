@@ -23,6 +23,12 @@ public class User extends Person{
 		this.following = new ArrayList<>();
 		this.dmListesi = new HashMap<>();
 	}
+	
+	public User(String email, String password) {
+		super(email, password);
+		this.following = new ArrayList<>();
+		this.dmListesi = new HashMap<>();
+	}
 
 	public String getName() {
 		return name;
@@ -71,8 +77,4 @@ public class User extends Person{
 	public void setDmListesi(HashMap<User, String> dmListesi) {
 		this.dmListesi = dmListesi;
 	}
-	
-	
-	
-
 }

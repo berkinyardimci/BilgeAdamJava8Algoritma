@@ -8,7 +8,6 @@ import lesson023.entity.data.User;
 
 public class DataBase {
 	
-	
 	private static List<User> userList = new ArrayList<>();
 
 	public DataBase() {
