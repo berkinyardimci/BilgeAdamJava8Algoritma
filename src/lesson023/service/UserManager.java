@@ -5,9 +5,6 @@ import lesson023.entity.database.DataBase;
 
 public class UserManager {
 
-	// kullanıcının girdiği mail bizim databasemizde var mı yok mu
-	// eğer varsa o User return edelim
-	
 	DataBase dataBase;
 	
 	public UserManager() {

@@ -6,16 +6,13 @@ public abstract class Person {
 	private String email;
 	private String password;
 
-	public Person(String id, String email, String password) {
+	public Person(String email, String password) {
 		super();
-		this.id = id;
 		this.email = email;
 		this.password = password;
 	}
-	public Person( String email, String password) {
-		this.email = email;
-		this.password = password;
-	}
+	
+	public abstract String randomGenerateId();
 
 	public String getId() {
 		return id;

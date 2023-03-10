@@ -12,5 +12,8 @@ public class InstagramApplication {
 		}
 
 	}
+	
+	//Register methodu yazalım
+	//
 
 }

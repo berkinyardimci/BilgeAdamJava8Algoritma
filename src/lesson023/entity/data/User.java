@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import lesson023.entity.enums.EStatus;
+import lesson023.util.TakeId;
 
 public class User extends Person{
 
@@ -16,12 +18,14 @@ public class User extends Person{
 	private EStatus eStatus;
 	private HashMap<User, String> dmListesi;
 	
-	public User(String id, String email, String password, String name, LocalDate birthDay) {
-		super(id, email, password);
+	public User(String email, String password, String name, LocalDate birthDay) {
+		super(email, password);
 		this.name = name;
 		this.birthDay = birthDay;
 		this.following = new ArrayList<>();
 		this.dmListesi = new HashMap<>();
+		String id = randomGenerateId();
+		setId(id);
 	}
 	
 	public User(String email, String password) {
@@ -76,5 +80,19 @@ public class User extends Person{
 
 	public void setDmListesi(HashMap<User, String> dmListesi) {
 		this.dmListesi = dmListesi;
+	}
+
+//	@Override
+//	public String randomGenerateId2() {
+//		Random random = new Random();
+//		int intRandomNumber = random.nextInt(1000,10000);
+//		String randomId = Integer.toString(intRandomNumber);
+//		return randomId;
+//	}
+	@Override
+	public String randomGenerateId() {
+		int id = TakeId.ID ++;
+		String randomId = Integer.toString(id);
+		return randomId;
 	}
 }

@@ -51,8 +51,10 @@ public class Menu {
 		User user = userManager.userMailKontrol(mail);
 		boolean kontrol = userManager.userSifreKontrol(password);
 		if (user != null && kontrol) {
+			System.out.println(user.getId());
 			userMenu(user);
 		}
+		
 	}
 
 	private void userMenu(User user) {
