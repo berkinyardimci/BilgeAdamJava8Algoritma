@@ -1,14 +1,18 @@
 package lesson023.util;
 
 import lesson023.entity.data.User;
+import lesson023.entity.enums.EStatus;
+import lesson023.service.AdminManager;
 import lesson023.service.UserManager;
 
 public class Menu {
 
 	UserManager userManager;
+	AdminManager adminManager;
 
 	public Menu() {
 		userManager = new UserManager();
+		adminManager = new AdminManager();
 	}
 
 	public void menu() {
@@ -34,13 +38,23 @@ public class Menu {
 
 	private void adminMenu() {
 		System.out.println("1- Tüm Kullanıcıları Listele");
-		System.out.println("2- Ana Menu");
+		System.out.println("2- Kullanıcı Aktif et");
+		System.out.println("3- Aktif kullanıcıları listele");
+		System.out.println("4- Onay Bekleyen kullanıcıları listele");
+		System.out.println("5- Ana Menu");
 		int key = Util.intDegerAlma("Yapmak istediğiniz işlem: ");
 		switch (key) {
 		case 1:
-			System.out.println("Kullanıcılar listelendi");
+			adminManager.getAll();
 			break;
 		case 2:
+			adminManager.setActive();
+			break;
+		case 3:
+			adminManager.getUserByActive();
+			break;
+		case 4:
+			adminManager.getUserByPendıng();
 			break;
 		default:
 			break;
@@ -53,11 +67,12 @@ public class Menu {
 
 		User user = userManager.userMailKontrol(mail);
 		boolean kontrol = userManager.userSifreKontrol(password);
-		if (user != null && kontrol) {
+		if (user != null && kontrol && user.geteStatus() == EStatus.ACTIVE) {
 			System.out.println(user.getId());
 			userMenu(user);
+		}else {
+			System.out.println("Lütfen onay bekleyin.");
 		}
-		
 	}
 
 	private void userMenu(User user) {

@@ -26,6 +26,7 @@ public class User extends Person{
 		this.dmListesi = new HashMap<>();
 		String id = randomGenerateId();
 		setId(id);
+		this.eStatus = EStatus.PENDING;
 	}
 	
 	public User(String email, String password) {
@@ -89,10 +90,17 @@ public class User extends Person{
 //		String randomId = Integer.toString(intRandomNumber);
 //		return randomId;
 //	}
+	
+	
 	@Override
 	public String randomGenerateId() {
 		int id = TakeId.ID ++;
 		String randomId = Integer.toString(id);
 		return randomId;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", birthDay=" + birthDay + "]";
 	}
 }

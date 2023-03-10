@@ -17,5 +17,14 @@ public class InstagramApplication {
 	//name, password, birthDay
 	//activate kod gönderelim
 	//kodlar eşitse sisteme kayıt yapsın
+	
+	//admin bütün kullanıcıları listeleyelim
+	
+	
+	//register oldugumda kullanıcının statusu pending olarak setlensin, tik
+	//admin bu useri active etmeden login olamicak
+	
+
+	
 
 }
