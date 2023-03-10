@@ -1,6 +1,8 @@
 package lesson023.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 import lesson023.entity.data.User;
@@ -56,17 +58,45 @@ public class UserManager {
 			} else {
 				System.out.println("Aktivasyon kodunuz yanlış girdiniz: ");
 			}
-		}else {
+		} else {
 			System.out.println("Bu email zaten kullanılıyor");
 		}
 
 	}
-	// 14:38
 
 	private String activationCode() {
 		Random random = new Random();
 		int activateCode = random.nextInt(1000, 5000);
 		String id = Integer.toString(activateCode);
 		return id;
+	}
+
+	public void dmAt(User user) {
+		String email = Util.stringDegerAl("Kİme Dm Atmak istiyosunuz: ");
+		User recieverUser = userMailKontrol(email);
+		String message = Util.stringDegerAl("Mesaj içeriği: ");
+
+		// recieverUser.getDmListesi().put(user, message);
+		// recieverUser.getMesajlar().add(message);
+		// recieverUser.getDmListesi().put(user, Arrays.asList(message));
+
+//		if (recieverUser.getDmListesi().containsKey(user)) {
+//			recieverUser.getDmListesi().replace(user, recieverUser.getDmListesi().get(user) + "||" + message);
+//		} else {
+//
+//			recieverUser.getDmListesi().put(user, message);
+//		}
+
+		if (recieverUser.getDmListesi().containsKey(user)) {
+			recieverUser.getDmListesi().replace(user, recieverUser.getDmListesi().get(user) + "||" + message);
+		} else {
+
+			recieverUser.getDmListesi().put(user, message);
+		}
+
+	}
+
+	public void dmListesi(User user) {
+		System.err.println(user.getDmListesi());
 	}
 }

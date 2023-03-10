@@ -74,16 +74,18 @@ public class Menu {
 			System.out.println("Lütfen onay bekleyin.");
 		}
 	}
-
 	private void userMenu(User user) {
-		System.out.println("1- DM At");
+		System.out.println("1- Dm At");
+		System.out.println("2-Mesajları listele");
 		int key = Util.intDegerAlma("Yapmak istediğiniz işlem: ");
 		switch (key) {
 		case 1:
-			System.out.println("Dm Atıldı " + user.getEmail());
+			userManager.dmAt(user);
 			break;
 		case 2:
+			userManager.dmListesi(user);
 			break;
+		case 3:
 		default:
 			break;
 		}

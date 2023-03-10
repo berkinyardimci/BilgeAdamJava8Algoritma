@@ -9,7 +9,7 @@ import java.util.Random;
 import lesson023.entity.enums.EStatus;
 import lesson023.util.TakeId;
 
-public class User extends Person{
+public class User extends Person {
 
 	private String name;
 	private LocalDate birthDay;
@@ -17,7 +17,7 @@ public class User extends Person{
 	private String activateCode;
 	private EStatus eStatus;
 	private HashMap<User, String> dmListesi;
-	
+
 	public User(String email, String password, String name, LocalDate birthDay) {
 		super(email, password);
 		this.name = name;
@@ -26,9 +26,9 @@ public class User extends Person{
 		this.dmListesi = new HashMap<>();
 		String id = randomGenerateId();
 		setId(id);
-		this.eStatus = EStatus.PENDING;
+		this.eStatus = EStatus.ACTIVE;
 	}
-	
+
 	public User(String email, String password) {
 		super(email, password);
 		this.following = new ArrayList<>();
@@ -75,6 +75,14 @@ public class User extends Person{
 		this.eStatus = eStatus;
 	}
 
+//	@Override
+//	public String randomGenerateId2() {
+//		Random random = new Random();
+//		int intRandomNumber = random.nextInt(1000,10000);
+//		String randomId = Integer.toString(intRandomNumber);
+//		return randomId;
+//	}
+
 	public HashMap<User, String> getDmListesi() {
 		return dmListesi;
 	}
@@ -83,18 +91,9 @@ public class User extends Person{
 		this.dmListesi = dmListesi;
 	}
 
-//	@Override
-//	public String randomGenerateId2() {
-//		Random random = new Random();
-//		int intRandomNumber = random.nextInt(1000,10000);
-//		String randomId = Integer.toString(intRandomNumber);
-//		return randomId;
-//	}
-	
-	
 	@Override
 	public String randomGenerateId() {
-		int id = TakeId.ID ++;
+		int id = TakeId.ID++;
 		String randomId = Integer.toString(id);
 		return randomId;
 	}
