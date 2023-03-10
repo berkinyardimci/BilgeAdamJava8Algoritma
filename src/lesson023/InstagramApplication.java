@@ -14,6 +14,8 @@ public class InstagramApplication {
 	}
 	
 	//Register methodu yazalım
-	//
+	//name, password, birthDay
+	//activate kod gönderelim
+	//kodlar eşitse sisteme kayıt yapsın
 
 }

@@ -23,6 +23,9 @@ public class Menu {
 		case 2:
 			userLogin();
 			break;
+		case 3:
+			userManager.register();
+			break;
 
 		default:
 			break;
